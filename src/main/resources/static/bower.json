@@ -1,0 +1,33 @@
+{
+  "name": "webclient",
+  "authors": [
+    "Jeffrey Pogoy <jypogoy@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "font-awesome": "^4.7.0",
+    "bootstrap": "^3.3.7",
+    "jquery-slimscroll": "slimscroll#^1.3.8",
+    "jquery-ui": "^1.12.1",
+    "morris.js": "^0.5.1",
+    "jquery-sparkline": "^2.1.3",
+    "bower-jvectormap": "^1.2.2",
+    "jquery-knob": "^1.2.13",
+    "daterangepicker": "^1.6.0",
+    "bootstrap-datepicker": "^1.7.1",
+    "bootstrap-wysihtml5": "*",
+    "fastclick": "^1.0.6",
+    "Ionicons": "ionicons#^2.0.1"
+  }
+}
