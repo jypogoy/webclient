@@ -1,3 +1,4 @@
+import { ProjectService } from '../../services/project/project.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectListComponent implements OnInit {
 
-  constructor() { }
+  projects: Array<any>;
+
+  constructor(private projectService: ProjectService) { }
 
   ngOnInit() {
+    this.projectService.getAll().subscribe(
+      data => {
+        this.projects = data;
+      },
+      error => console.error(error)
+    );
   }
 
+  addProject(project: any) {
+    this.projectService.addProject(project);
+    return false;
+  }
 }

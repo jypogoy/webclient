@@ -1,8 +1,54 @@
-<h1>Project List</h1>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="#">Home</a></li>
+  <li class="breadcrumb-item active">Projects</li>
+</ol>
 
-<ul>
-  <li *ngFor="let project of projects">
-    <h3>{{ project.name }}</h3>
-    <p>{{ project.description }}</p>
-  </li>
-</ul>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-9"><h2>Projects</h2></div> 
+    <div class="col-xs-3">
+      <a class="btn btn-primary btn-xs pull-right title-control" href title="Create a new Project">
+        <span class="fa-stack fa-lg">            
+            <i class="fa fa-plus fa-stack-1x"></i>
+        </span>Create a new Project
+      </a>
+      <!-- <button class="btn btn-sm btn-primary" title="Edit" (click)="edit()">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-flag fa-stack-1x fa-inverse"></i> Create a new Project
+    </button> -->
+    </div>
+  </div>
+</div>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th><input type="checkbox"/></th>  
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Date Added</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let project of projects">
+      <td><input type="checkbox"/></td>
+      <td>{{ project.id }}</td>
+      <td><a href >{{ project.name }}</a></td>
+      <td>{{ project.description }}</td>
+      <td>{{ project.dateAdded | date }}</td>
+      <td>
+        <button class="btn btn-xs btn-primary" title="Edit" (click)="edit()"><i class="fa fa-pencil fa-fw"></i></button>
+        <button class="btn btn-xs btn-danger" title="Delete" (click)="delete()"><i class="fa fa-times fa-fw"></i></button>        
+      </td>
+    </tr>
+  </tbody>
+</table>   
+<div class="container">
+  <app-pagination></app-pagination>
+</div> 
+
+
+
+

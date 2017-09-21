@@ -8,12 +8,14 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { ProjectListComponent } from './components/project-list/project-list.component';
 import { PostListComponent } from './components/post-list/post-list.component';
+import { PaginationComponent } from './components/common/pagination/pagination.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProjectListComponent,
-    PostListComponent
+    PostListComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,

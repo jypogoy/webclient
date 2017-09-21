@@ -1,4 +1,3 @@
-import { ProjectService } from '../../services/project/project.service';
 import { PostService } from '../../services/post/post.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,9 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class PostListComponent implements OnInit {
 
   posts: Array<any>;
-  projects: Array<any>;
 
-  constructor(private postService: PostService, private projectService: ProjectService) { }
+  constructor(private postService: PostService) { }
 
   ngOnInit() {
     this.postService.getAll().subscribe(
@@ -20,14 +18,7 @@ export class PostListComponent implements OnInit {
         this.posts = data;
       },
       error => console.error(error)
-    );
-
-    this.projectService.getAll().subscribe(
-      data => {
-        this.projects = data;
-      },
-      error => console.error(error)
-    );
+    );    
   }
 
 }
