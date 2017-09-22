@@ -1,4 +1,4 @@
-import { ProjectService } from '../../services/project/project.service';
+import { ProjectService } from '../../../services/project/project.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -21,8 +21,4 @@ export class ProjectListComponent implements OnInit {
     );
   }
 
-  addProject(project: any) {
-    this.projectService.addProject(project);
-    return false;
-  }
 }
