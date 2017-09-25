@@ -20,6 +20,13 @@ export class ProjectService {
     }).catch(this.handleError);
   }
 
+  getAllFiltered(): Observable<any> {
+    return this.http.get(this.url, {headers: this.headers})
+      .map((res: Response) => {
+        return res.json();
+    }).catch(this.handleError);
+  }
+
   getById(id: number): Observable<any> {
     return this.http.get(this.url + '/' + id)
       .map((res: Response) => {

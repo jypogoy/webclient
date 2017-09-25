@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+.page-title {
+    margin-bottom: 20px;
+}
+
+.app-btn {
+    padding-right: 10px;
+}
+
+.app-btn-add {
+    margin-right: 20px;
+    margin-top: 12px;
+}
+
+.app-tbl-selector {
+    text-align: center;
+}
+
+.pagination {
+    padding-right: 20px;
+}

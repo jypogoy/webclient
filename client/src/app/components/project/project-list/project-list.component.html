@@ -43,7 +43,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let project of projects">
+    <tr *ngFor="let project of projects | paginate: {itemsPerPage: 8, currentPage: p}">
       <td class="app-tbl-selector"><input type="checkbox"/></td>
       <td>{{ project.id }}</td>
       <td><a href >{{ project.name }}</a></td>
@@ -55,11 +55,25 @@
       </td>
     </tr>
   </tbody>
-</table>   
-<div class="container">
-  <app-pagination></app-pagination>
-</div> 
+</table>  
 
+<!-- <div class="container">
+  <div class="col-sm-6">
+    <span ng-show="total > 0">Showing {{ start | number }} to {{ end | number }} of {{ total | number }} entries</span>		
+    <span ng-show="total == 0">No records found.</span>	
+  </div>
+</div>   -->
 
-
-
+<!-- Pager -->  
+<div class="pull-right pagination">
+  <pagination-controls 
+    (pageChange)="p = $event" 
+    maxSize="9"
+    directionLinks="true"
+    previousLabel="Previous"
+    nextLabel="Next"
+    screenReaderPaginationLabel="Pagination"
+    screenReaderPageLabel="page"
+    screenReaderCurrentLabel="You're on page">
+</pagination-controls> 
+</div>

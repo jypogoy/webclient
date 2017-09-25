@@ -9,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class ProjectListComponent implements OnInit {
 
   projects: Array<any>;
+  total: number;
+  //projects = [];
 
   constructor(private projectService: ProjectService) { }
 
@@ -16,6 +18,10 @@ export class ProjectListComponent implements OnInit {
     this.projectService.getAll().subscribe(
       data => {
         this.projects = data;
+        // for (let i = 0; i <= 1000; i++) {
+        //   this.projects.push("Angular " + i);
+        // }
+
       },
       error => console.error(error)
     );
