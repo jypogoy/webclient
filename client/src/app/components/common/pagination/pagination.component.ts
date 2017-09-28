@@ -1,21 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-pagination',
   templateUrl: './pagination.component.html',
-  styleUrls: ['./pagination.component.css']
+  styleUrls: ['./pagination.component.css'],
+  inputs: ['totalItems'],
+  outputs: ['pageChanged']
 })
 export class PaginationComponent implements OnInit {
+  
+  pageChanged = new EventEmitter<string>();
 
-  collection = [];
+  constructor() {}
 
-  constructor() { 
-    for (let i = 0; i <= 100; i++) {
-      this.collection.push('Angular ' + i);
-    }
-  }
+  ngOnInit() {}
 
-  ngOnInit() {
+  paginate(page: string) {
+    this.pageChanged.emit(page);
   }
 
 }

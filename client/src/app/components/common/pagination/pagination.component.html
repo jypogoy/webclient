@@ -1,12 +1,10 @@
-<div class="pull-right pagination">
-    <pagination-controls 
-        (pageChange)="p = $event" 
-        maxSize="9"
-        directionLinks="true"
-        previousLabel="Previous"
-        nextLabel="Next"
-        screenReaderPaginationLabel="Pagination"
-        screenReaderPageLabel="page"
-        screenReaderCurrentLabel="You're on page">
-    </pagination-controls> 
-</div>
+<pagination-controls 
+  (pageChange)="paginate($event)" 
+  directionLinks="true"
+  previousLabel="Previous"
+  nextLabel="Next"
+  screenReaderPaginationLabel="Pagination"
+  screenReaderPageLabel="page"
+  screenReaderCurrentLabel="You're on page"
+  class="xpagination">
+</pagination-controls>

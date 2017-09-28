@@ -20,13 +20,21 @@ export class ProjectService {
     }).catch(this.handleError);
   }
 
-  getAllFiltered(): Observable<any> {
-    return this.http.get(this.url, {headers: this.headers})
+  getAllFiltered(keyword: string, currentPage: number, itemsPerPage: number, sortDirection: string, sortField: string): Observable<any> {
+    return this.http.get(this.url + '/filter?keyword=' + keyword + '&currentPage=' + currentPage + '&itemsPerPage=' + itemsPerPage 
+                            + '&sortDirection=' + sortDirection + '&sortField=' + sortField, {headers: this.headers})
       .map((res: Response) => {
         return res.json();
     }).catch(this.handleError);
   }
 
+  count(keyword: string): Observable<any> {
+    return this.http.get(this.url + '/count?keyword=' + keyword, {headers: this.headers})
+      .map((res: Response) => {
+        return res.json();
+    }).catch(this.handleError);
+  }
+  
   getById(id: number): Observable<any> {
     return this.http.get(this.url + '/' + id)
       .map((res: Response) => {
