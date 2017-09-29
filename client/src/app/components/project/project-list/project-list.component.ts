@@ -10,6 +10,8 @@ import { AsyncPipe } from '@angular/common';
 })
 export class ProjectListComponent implements OnInit {
 
+  public loading = false; // ngx-loading flag
+
   projects:Array<any>;
   projectsJSON = {};
   
@@ -36,13 +38,18 @@ export class ProjectListComponent implements OnInit {
   }
 
   getProjects() {    
+    this.loading = true;
     this.projectService.getAllFiltered(this.keyword, this.filterPage, this.itemsPerPage, this.sortDirection, this.sortField).subscribe(
       data => {
         this.projects = data;        
         if (this.end == 0)
-          this.end = this.projects.length;//todo
+          this.end = this.projects.length;
+        this.loading = false;  
       },
-      error => console.error(error)
+      error => {
+        console.error(error);
+        this.loading = false;
+      }
     );
   }
 

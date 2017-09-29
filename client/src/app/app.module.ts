@@ -1,4 +1,5 @@
 import { NgxPaginationModule } from 'ngx-pagination';
+import { LoadingModule } from 'ngx-loading';
 
 import { ProjectService } from './services/project/project.service';
 import { PostService } from './services/post/post.service';
@@ -26,7 +27,8 @@ import { PaginationComponent } from './components/common/pagination/pagination.c
     BrowserModule,
     FormsModule,
     HttpModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    LoadingModule
   ],
   providers: [PostService, ProjectService],
   bootstrap: [AppComponent]
