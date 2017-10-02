@@ -75,7 +75,7 @@
     </thead>
     <tbody>
       <tr *ngIf="totalItems == 0">
-        <td><span>No records found.</span></td>
+        <td colspan="6"><span>No records found.</span></td>
       </tr>     
       <tr *ngFor="let project of projects | paginate: { itemsPerPage: itemsPerPage, 
                                                         currentPage: currentPage, 
@@ -104,7 +104,8 @@
         <select class="input-sm margin-left-10px" name="showBy" id="showBy" name="showBy" (change)="changeDisplayCount()" [(ngModel)] = "itemsPerPage">
           <option *ngFor="let i of showBy" [ngValue]="i">{{ i }}</option>
         </select>
-        <span class="margin-left-20px">Showing {{ start | number }} to {{ end | number }} of {{ totalItems | number }} entries</span>
+        <span class="margin-left-20px" *ngIf="totalItems > 1">Showing {{ start | number }} to {{ end | number }} of {{ totalItems | number }} entries </span>
+        <span class="margin-left-20px" *ngIf="totalItems == 1">Showing {{ start | number }} to {{ end | number }} of {{ totalItems | number }} entry </span>
       </div>
     </form>
   </div>
